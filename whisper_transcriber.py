@@ -1,7 +1,7 @@
 import whisper
 
-model = whisper.load_model("base")  # можно заменить на "small" или "medium"
+model = whisper.load_model("large")  
 
-def transcribe(audio_path: str) -> str:
-    result = model.transcribe(audio_path)
+def transcribe(audio_path: str, lang: str = "en") -> str:
+    result = model.transcribe(audio_path, language=lang)
     return result["text"]
